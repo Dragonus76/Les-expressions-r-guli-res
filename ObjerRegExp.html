@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Objet_RegExp</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var sentence = "Hey the World ";
+
+		var result = /\bthe\b/.exec(sentence);// On cherche à récupérer le mot "ton"
+
+		if(result){ // On verifie que ce n'est pa null
+
+			alert(result); // Affiche "the"
+
+		}
+
+		// Les parenthéses capturantes 
+
+
+		var birth = 'Je suis né en decembre';
+
+
+
+
+		/^Je suis né en (\S+)$/.exec(birth); // ici on demande a l intrepreteur javascript de extraire le mois de naissances c'est ce qu'on appel les parenthéses capturantes 
+
+		alert(RegExp.$1); // Affiche : "decembre"
+
+
+		var email = prompt ("Entrez votre adresse e-mail:","msadki11@gmail.com");
+
+		if(/^([a-z0-9._-]+)@([a-z0-9._-]+)\.([a-z]{2,6})$/.test(email)){
+
+			alert('Partie locale : ' + RegExp.$1 +'\nDomaine : ' + RegExp.$2 + '\nExtension :' + RegExp.$3);
+		}else{
+
+			alert('Adresse e-mail invalide !');
+		}
+
+
+		var html = '<a href="www.monsite.fr">Mon site</a>';
+
+		// Voici un regex qui peut être construite:
+
+		/<a href="(.+)">/.exec(html);
+
+		alert(RegExp.$1)
+
+
+		// Voici deux exemples lors 
+        
+		var html = '<a href="www.monsite.fr"><strong class="web">Mon site</strong></a>';
+
+
+		/<a href="(.+)">/.exec(html);
+
+		alert(RegExp.$1)
+
+  // Pour evitez ce type d'erreur on va rajouter (?)
+
+		var html = '<a href="www.monsite.fr">Mon site</a>';
+
+		// Voici un regex qui peut être construite:
+
+		/<a href="(.+?)">/.exec(html);
+
+		alert(RegExp.$1)
+
+
+		// Rechercher et remplacer 
+
+		// Une fonctionnalité interessante des regex est de pouvoir effectuer des "rechercher-remplacer " Ces mots signifie qu'on recherche  des portions de texte dans une chaîne de caractéres et qu'on remplace ces portions par d'autres . C'est relativement pratique pour modifier une chaîne rapidement, ou pour convertir des données. Une utilisation fréquentes est la conversion de balises BBcodes en html pour prévusialise le contenu d'une Zone de texte.
+
+
+		var coucou = 'Je m\'appelle Mustapha';
+
+		var result = coucou.replace(/Mustapha/,'Alex');
+
+		alert(result); // Affiche :  "Je m'appelle Alex"
+         
+
+         var sentence = 'Ils s\'appelle Mustapha.Mustapha écrit un tutoriel.';
+
+         var result = sentence.replace(/Mustapha/g,'Alex');
+
+         alert(result);
+
+         // Grâce a la lettre g je peut  remplacer tous les mustapha qui se trouve dans le texte  cela s'appelle une occurence  donc cela veut dire que le regex a trouver deux occurence a savoir mustapha qui la finalement remplacer par Alex
+
+
+         //Rechercher et capturer 
+
+
+         var date = '05/12/2019';
+
+         date = date.replace(/^(\d{2})\/())
+
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>

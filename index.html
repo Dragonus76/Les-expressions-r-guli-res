@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title>Les_expresssions_regulieres</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+
+
+		if(/raclette/.test('Je mangerais bien une raclette savoyarde !')){
+
+			alert('ça semble parler de raclette');
+		}else{
+			alert('Pas de raclette àl\'horizon');
+		}
+
+
+
+		//Si on change notre regex et que l'on met une majuscule au mot « raclette », comme ceci : /Raclette/, le test renverra false, car le mot « raclette » présent dans la phrase ne comporte pas de majuscule. C'est relativement logique en fait. Il est possible, grâce aux options, de dire à la regex d'ignorer la casse, c'est-à-dire de rechercher indifféremment les majuscules et les minuscules. Cette option s'appelle i, et comme chaque option (nous en verrons d'autres), elle se place juste après le slash de fermeture de la regex ://
+
+		if(/Raclette/i.test('Je magerais bien une raclette savoyardde !')){
+
+			alert('Ça semble parler de raclette ');
+		}else{
+			alert('Pas de raclette à l\horizon');
+		}
+
+
+		if(/Raclette|Tartiflette/i.test('Je magerais bien une tartiflette !')){
+
+			alert('Ça semble parler de trucs savoyards');
+		}else{
+
+			alert('Pas de plats légers à l\'horizon');
+		}
+
+		// Voivi les métacaractères 
+		// ! ^ $ ( ) [ ] { } ? + * . / \ |
+
+
+
+
+		// Ce mini code permet de verifier et valide des donnees entrz par les utilisateurs,
+
+
+	var email = prompt("Entrz votre adresse e-mail :", "Javascript@siteduzero.com");
+
+
+		if(/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(email)){
+
+			alert("Adresse e-mail valide !");
+		}else{
+
+			alert("Adresse e-mail invalide !");
+		}
+
+
+
+		var date = '23/02/2019';
+
+		date = date.replace(/^(d{2})\/(\d{2})\/(\d{4})$/,'Le $2/$1/$3');
+
+		alert(date);
+
+
+
+
+		// Ici on utilise \s et S\ tous les cararctéres qui se trouvent entre les balises. Or, le point ne trouve que des caractéres et des espaces blanc hormis  le retour à la ligne . C'est la raison pour laquelle on utilisera souvent la classe comprenant \s et \S quand il s'agira de trouver du texte comportant des retours a la ligne.
+
+
+
+
+
+		var text = 'bla bla [b]un peu de texte[/b] bla [b]bla bla en gras[/b] bla bla';
+
+text = text.replace(/\[b\]([\s\S]*?)\[\/b\]/g, '<strong>$1</strong>');
+
+alert(text);
+		
+	</script>
+
+</body>
+</html>
