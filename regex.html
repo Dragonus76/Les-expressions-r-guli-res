@@ -38,7 +38,18 @@
 			}
 
 
-		
+		var sentence = 'Dans 22 Jours, J\'aurai 24 ans';
+
+		var result = sentence.replace(/(\d+)/g, function(str, p1){
+
+			p1 = parseInt(p1);
+
+			if(!isNaN(p1)){
+				return num2Letters(p1);
+			}
+		});
+
+		alert(result); // Affiche : "Dans vingt-deux jours, j'aurai quarante deux ans "
 		
 
 

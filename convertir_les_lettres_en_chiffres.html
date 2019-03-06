@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convertir_les_lettres_en_chiffres</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var sentence = 'si ton tonton';
+
+		var result = sentence.search(/\bton\b/);
+
+		if(result > -1){ // On verifie que quelque chise a été trouvé 
+
+
+			alert('La position est ' + result); // 3
+
+
+		}
+
+
+		var sentence = 'Si ton tonton tond	 tonton, ton tonton tondu sera tondu';
+
+		var result = sentence.match(/\btonton\b/g);
+
+		alert('Il y a ' + result.length + '"tonton":\n\n' + result);
+
+
+		var family ='Mustapha, Anna;Ines:coucou;Leina;Celestin';
+		var result = family.split(/[,:;]/);
+
+		alert(result);
+
+	</script>
+
+</body>
+</html>
